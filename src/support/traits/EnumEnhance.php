@@ -3,7 +3,6 @@
 namespace yuanzhihai\enum\think\support\traits;
 
 use think\facade\Lang;
-use think\helper\Str;
 
 trait EnumEnhance
 {
@@ -19,9 +18,17 @@ trait EnumEnhance
 
     public function description(string $localizationGroup = '*'): string
     {
-        $key = "$localizationGroup." . static::class . '.' . $this->value;
-
-        return Lang::has($key) ? Lang::get($key) : Str::of($this->name)->replace('_', ' ')->lower();
+        $key = "$localizationGroup." . static::class;
+        $description = ucfirst(str_replace('_', '', strtolower($this->name)));
+        if (Lang::has($key)) {
+            if ($lang = Lang::get($key)) {
+                if (!isset($lang[$this->value])) {
+                    return $description;
+                }
+                return $lang[$this->value];
+            }
+        }
+        return $description;
     }
 
     public function is(\BackedEnum $enum): bool
