@@ -10,12 +10,20 @@
     }
   ],
   "require": {
-    "php": ">=8.1.0",
+    "php": ">=8.0.0",
+    "spatie/macroable": "^2.0",
     "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
       "yuanzhihai\\enum\\think\\": "src/"
+    }
+  },
+  "extra": {
+    "think": {
+      "config": {
+        "enums": "config/enums.php"
+      }
     }
   }
 }

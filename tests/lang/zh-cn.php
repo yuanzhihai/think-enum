@@ -1,13 +1,14 @@
 <?php
 
-use app\enums\UserType;
+use app\enums\UserTypeEnum;
 
 return [
     'enums' => [
-        UserType::class => [
-            UserType::ADMINISTRATOR->value => '管理员',
-            UserType::MODERATOR->value     => '主持人',
-            UserType::SUBSCRIBER->value    => '订阅用户',
+        UserTypeEnum::class => [
+            UserTypeEnum::ADMINISTRATOR       => '管理员',
+            UserTypeEnum::SUPER_ADMINISTRATOR => '超级管理员',
+            UserTypeEnum::MODERATOR           => '监督员',
+            UserTypeEnum::SUBSCRIBER          => '订阅用户',
         ],
     ]
 ];
