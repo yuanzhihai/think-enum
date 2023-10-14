@@ -25,14 +25,7 @@ $ composer require yuanzhihai/think-enum v1
 return [
     'localization' => [
         'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),// app/lang/zh-cn.php enums key
-    ],
-
-    // 通过 transform 中间件将 request 中的参数转换成枚举实例时定义对应关系
-    // 你可以将请求参数中用到的枚举定义在下面，通过中间件，将会被自动转换成枚举类
-    'transformations' => [
-        // 参数名 => 对应的枚举类
-
-    ],
+    ]
 ];
 
 ```
