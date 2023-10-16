@@ -15,7 +15,7 @@
  支持 thinkphp 6以上版本：
 
 ```shell
-$ composer require yuanzhihai/think-enum v1
+$ composer require yuanzhihai/think-enum "^1.0" 
 ```
 
 ### 配置项说明
