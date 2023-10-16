@@ -75,13 +75,13 @@ abstract class Enum
     protected static function getLocalizedDescription($value): ?string
     {
         if (static::isLocalizable()) {
-            $localizedStringKey = static::getLocalizationKey();
-            if (Lang::has($localizedStringKey)) {
-                if ($lang = Lang::get($localizedStringKey)) {
-                    if (!isset($lang[$value])) {
-                        return null;
-                    }
-                    return $lang[$value];
+            $range    = Lang::getLangSet();
+            $filePath = app()->getAppPath() . 'lang/' . $range . '/' . static::getLocalizationKey() . '.php';
+            if (file_exists($filePath)) {
+                Lang::load($filePath, $range);
+                $langStringKey = static::class . '.' . $value;
+                if (Lang::has($langStringKey)) {
+                    return Lang::get($langStringKey);
                 }
             }
         }
@@ -96,7 +96,7 @@ abstract class Enum
 
     public static function getLocalizationKey(): string
     {
-        return Config::get('enum.localization.key') . '.' . static::class;
+        return Config::get('enum.localization.key');
     }
 
     protected static function getFriendlyKeyName(string $key): string

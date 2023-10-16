@@ -7,6 +7,6 @@
 
 return [
     'localization'    => [
-        'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),
+        'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),//语言包文件名
     ]
 ];

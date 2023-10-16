@@ -24,7 +24,7 @@ $ composer require yuanzhihai/think-enum v1
 
 return [
     'localization' => [
-        'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),// app/lang/zh-cn.php enums key
+        'key' => env('ENUM_LOCALIZATION_KEY', 'enums'),// app/lang/zh-cn/enums.php  语言包文件名
     ]
 ];
 
