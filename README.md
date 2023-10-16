@@ -10,11 +10,11 @@ php8.1 版本后内置枚举支持，更多信息可以查看：https://www.php.
 - 提供了便捷的比较方法`is`、`isNot`和`in`，用于枚举实例之间的对比
 - 
 ## 安装
- PHP版本：php8.1+
+ PHP版本：php8.1+ 
  支持 thinkphp 8以上版本：
 
 ```shell
-$ composer require yuanzhihai/think-enum -vvv
+$ composer require yuanzhihai/think-enum ^2.0
 ```
 
 更为具体的使用可以查看测试用例 https://github.com/yuanzhihai/think-enum/tree/main/tests

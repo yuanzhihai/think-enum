@@ -18,14 +18,13 @@ trait EnumEnhance
 
     public function description(string $localizationGroup = '*'): string
     {
-        $key = "$localizationGroup." . static::class;
+        $range       = Lang::getLangSet();
+        $filePath    = app()->getAppPath() . 'lang/' . $range . '/' . $localizationGroup . '.php';
         $description = ucfirst(str_replace('_', '', strtolower($this->name)));
-        if (Lang::has($key)) {
-            if ($lang = Lang::get($key)) {
-                if (!isset($lang[$this->value])) {
-                    return $description;
-                }
-                return $lang[$this->value];
+        if (file_exists($filePath)) {
+            $key = static::class . '.' . $this->value;
+            if (Lang::has($key)) {
+                return Lang::get($key);
             }
         }
         return $description;
