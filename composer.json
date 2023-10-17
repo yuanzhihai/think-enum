@@ -1,6 +1,6 @@
 {
   "name": "yuanzhihai/think-enum",
-  "description": "description",
+  "description": "更方便地在项目中定义并使用枚举",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
